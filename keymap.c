@@ -1,4 +1,4 @@
-// Flashing: qmk flash -e CONVERT_TO=promicro_rp2040 -kb sofle/rev1 -km ambe
+// Flashing: qmk flash -e CONVERT_TO=promicro_rp2040 -kb sofle/rev1 -km amber
 
 #include QMK_KEYBOARD_H
 #include <stdio.h>
@@ -31,14 +31,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |  `   |   1  |   2  |   3  |   4  |   5  |                    |   6  |   7  |   8  |   9  |   0  |  =   |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
-
  * | ESC  |   Q  |   W  |   E  |   R  |   T  |                    |   Y  |   U  |   I  |   O  |   P  |  '   |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * | Tab  |   A  |   S  |   D  |   F  |   G  |-------.    ,-------|   H  |   J  |   K  |   L  |   :  |  ?   |
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
  * | LCTR |   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   ,  |   .  |   /  |  ;   |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            | LGUI | Lower| LAlt |Space | / Shift /       \Enter \  |Bspc  | RCTR |RAISE | RGUI |
+ *            | LGUI | Lower| LAlt |Space | / Shift /       \Enter \  |Bspc  | RCTR |RAISE |ADJUST|
  *            |      |      |      |      |/       /         \      \ |      |      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
@@ -48,30 +47,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_ESC,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                     KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,  KC_QUOT,
   KC_TAB,   KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                     KC_H,    KC_J,    KC_K,    KC_L, KC_COLN,  KC_QUES,
   KC_LCTL,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, KC_MUTE,    XXXXXXX,KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_SCLN,
-            KC_LGUI, MO(_LOWER), KC_LALT, KC_SPC, KC_LSFT,         KC_ENT, KC_BSPC, KC_RCTL, MO(_RAISE), KC_RGUI
+            KC_LGUI, MO(_LOWER), KC_LALT, KC_SPC, KC_LSFT,         KC_ENT, KC_BSPC, KC_RCTL, MO(_RAISE), MO(_ADJUST)
 ),
 /*
- * COLEMAK
+ * GAMING
  * ,-----------------------------------------.                    ,-----------------------------------------.
- * |  `   |   1  |   2  |   3  |   4  |   5  |                    |   6  |   7  |   8  |   9  |   0  |  `   |
+ * | ESC  |   1  |   2  |   3  |   4  |   5  |                    |   6  |   7  |   8  |   9  |   0  |  =   |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | ESC  |   Q  |   W  |   F  |   P  |   G  |                    |   J  |   L  |   U  |   Y  |   ;  | Bspc |
+ * | RSFT |   Q  |   W  |   E  |   R  |   T  |                    |   Y  |   U  |   I  |   O  |   P  |  '   |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | TAB  |   A  |   R  |   S  |   T  |   D  |-------.    ,-------|   H  |   N  |   E  |   I  |   O  |  '   |
+ * | TAB  |   A  |   S  |   D  |   F  |   G  |-------.    ,-------|   H  |   J  |   K  |   L  |   :  |  ?   |
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
- * | LCTR |   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   K  |   M  |   ,  |   .  |   /  |RShift|
+ * | LSFT |   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   ,  |   .  |   /  |  ;   |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            | LGUI | Lower| LAlt |Space | / Shift /       \Enter \  |RAISE | RCTR | RAlt | RGUI |
+ *            | RALT | LCTR | Spc  | LALT | / RCTR  /       \Enter \  |Bspc  | RCTR |RAISE |ADJUST|
  *            |      |      |      |      |/       /         \      \ |      |      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
 
 [_COLEMAK] = LAYOUT(
-  KC_GRV,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                      KC_6,    KC_7,    KC_8,    KC_9,    KC_0,  KC_GRV,
-  KC_ESC,   KC_Q,   KC_W,    KC_F,    KC_P,    KC_G,                      KC_J,    KC_L,    KC_U,    KC_Y, KC_SCLN,  KC_BSPC,
-  KC_TAB,   KC_A,   KC_R,    KC_S,    KC_T,    KC_D,                      KC_H,    KC_N,    KC_E,    KC_I,    KC_O,  KC_QUOT,
-  KC_LCTL,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, KC_MUTE,      XXXXXXX,KC_K,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_RSFT,
-                 KC_LGUI,MO(_LOWER), KC_LALT,KC_SPC,KC_LSFT,       KC_ENT,  MO(_RAISE), KC_RCTL, KC_RALT, KC_RGUI
+  KC_ESC,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                      KC_6,    KC_7,    KC_8,    KC_9,    KC_0,  KC_EQL,
+  KC_RSFT,  KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,  KC_QUOT,
+  KC_TAB,   KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                      KC_H,    KC_J,    KC_K,    KC_L, KC_COLN,  KC_QUES,
+  KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, KC_MUTE,    XXXXXXX,KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_SCLN,
+            KC_RALT, KC_LCTL, KC_SPC, KC_LALT, KC_RCTL,              KC_ENT, KC_BSPC, KC_RCTL, MO(_RAISE), MO(_ADJUST)
 ),
 /* LOWER
  * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -83,7 +82,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
  * | LCTR |   #  |   |  |   ~  |   `  |   '  |-------|    |-------|   "  |   +  |   %  |   ;  |   \  |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            | LGUI | Lower| LAlt |Space | / Shift /       \Enter \  |RAISE | RCTR | RAlt | RGUI |
+ *            | LGUI | Lower| LAlt |Space | / Shift /       \Enter \  |Bspc  | RCTR |RAISE |ADJUST|
  *            |      |      |      |      |/       /         \      \ |      |      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
@@ -96,36 +95,36 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 /* RAISE
  * ,----------------------------------------.                    ,-----------------------------------------.
- * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
+ * |      |      |      |      |      |      |                    |QWERTY|COLEMA|      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | Esc  | Ins  | Pscr | Menu |      |      |                    |      | PWrd |  Up  | NWrd | DLine| Bspc |
+ * |      | Ins  |QWERTY|COLEMA|Pscr | Menu |                    |      | PWrd |  Up  | NWrd | DLine| Bspc |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | Tab  | LAt  | LCtl |LShift|      | Caps |-------.    ,-------|      | Left | Down | Rigth|  Del | Bspc |
- * |------+------+------+------+------+------|  MUTE  |    |       |------+------+------+------+------+------|
- * | LCTR | Undo |  Cut | Copy | Paste|      |-------|    |-------|      | LStr |      | LEnd |      | Shift|
+ * |      | LAt  | LCtl |LShift|      | Caps |-------.    ,-------|      | Left | Down | Rigth|  Del | Bspc |
+ * |------+------+------+------+------+------|  MUTE  |   |       |------+------+------+------+------+------|
+ * |      | Undo |  Cut | Copy | Paste|      |-------|    |-------|      | LStr |      | LEnd |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            | LGUI | Lower| LAlt |Space | / Shift /       \Enter \  |RAISE | RCTR | RAlt | RGUI |
+ *            |      |      |      |      | /       /       \Enter \  |Bspc  | RCTR |RAISE |ADJUST|
  *            |      |      |      |      |/       /         \      \ |      |      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
 [_RAISE] = LAYOUT(
-  _______, _______ , _______ , _______ , _______ , _______,                           _______,  _______  , _______,  _______ ,  _______ ,_______,
-  _______,  KC_INS,  KC_PSCR,   KC_APP,  XXXXXXX, XXXXXXX,                        KC_PGUP, KC_PRVWD,   KC_UP, KC_NXTWD,KC_DLINE, KC_BSPC,
-  _______, KC_LALT,  KC_LCTL,  KC_LSFT,  XXXXXXX, KC_CAPS,                       KC_PGDN,  KC_LEFT, KC_DOWN, KC_RGHT,  KC_DEL, KC_BSPC,
-  _______,KC_UNDO, KC_CUT, KC_COPY, KC_PASTE, XXXXXXX,  _______,       _______,  XXXXXXX, KC_LSTRT, XXXXXXX, KC_LEND,   XXXXXXX, _______,
-                         _______, _______, _______, _______, _______,       _______, _______, _______, _______, _______
+  _______, _______ , _______ , _______ , _______ , _______,                      KC_QWERTY,KC_COLEMAK, _______,  _______ ,  _______,  _______,
+  _______,  KC_INS,  KC_QWERTY,KC_COLEMAK,KC_PSCR,KC_APP,                        _______,  KC_PRVWD,   KC_UP,    KC_NXTWD,  KC_DLINE, KC_BSPC,
+  _______, KC_LALT,  KC_LCTL,  KC_LSFT,  XXXXXXX, KC_CAPS,                       _______,  KC_LEFT,    KC_DOWN,  KC_RGHT,   KC_DEL,   KC_BSPC,
+  _______,KC_UNDO, KC_CUT, KC_COPY, KC_PASTE, XXXXXXX,  _______,       _______,  XXXXXXX,  KC_LSTRT,   XXXXXXX,  KC_LEND,   XXXXXXX,  _______,
+                _______, _______, _______, _______, _______,              _______, _______, _______, _______, _______
 ),
 /* ADJUST
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |QK_BOOT|     |QWERTY|COLEMAK|      |      |                    |      |      |      |      |      |      |
+ * |QK_BOOT|     |QWERTY|COLEMA|      |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |      |      |MACWIN|      |      |      |-------.    ,-------|      | VOLDO| MUTE | VOLUP|      |      |
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
  * |      |      |      |      |      |      |-------|    |-------|      | PREV | PLAY | NEXT |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            | LGUI | Lower| LAlt |Space | / Shift /       \Enter \  |RAISE | RCTR | RAlt | RGUI |
+ *            | LGUI | Lower| LAlt |Space | / Shift /       \Enter \  |Bspc  | RCTR |RAISE |ADJUST|
  *            |      |      |      |      |/       /         \      \ |      |      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
@@ -172,7 +171,7 @@ static void print_status_narrow(void) {
         default:
             oled_write_P(PSTR("undef\n"), false);
     }
-    // oled_write_P(PSTR("~~~~~\n"), false);
+    oled_write_P(PSTR("-----\n"), false);
 
     // Print current layer
     // oled_write_ln_P(PSTR("LAYER"), false);
@@ -396,10 +395,7 @@ static void render_slave(void) {
 }
 
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
-    if (is_keyboard_master()) {
-        return OLED_ROTATION_270;
-    }
-    return rotation;
+    return OLED_ROTATION_270;
 }
 
 bool oled_task_user(void) {
